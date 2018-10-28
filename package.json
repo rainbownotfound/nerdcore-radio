@@ -1,0 +1,25 @@
+{
+    "name": "nerdcoreradio",
+    "version": "0.0.01",
+    "description": "Nerdcore Radio has 20+ different artists!",
+    "main": "shards.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node shards.js",
+        "install": "node-gyp rebuild"
+    },
+    "engines": {
+        "node": "8.4.0"
+    },
+    "dependencies": {
+        "fs": "^0.0.2",
+        "discord.js": "^11.3.2",
+        "sqlite": "^2.9.2",
+        "got": "^8.3.1",
+        "url": "^0.11.0",
+        "express": "^4.16.3",
+        "ytdl-core": "^0.20.4",
+        "node-opus": "^0.3.0"
+    },
+    "author": "RainbowNotFound"
+}
