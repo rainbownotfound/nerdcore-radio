@@ -5,7 +5,7 @@ const utils = require('../utils');
 let prefixes = JSON.parse(fs.readFileSync("data/configs/prefixes.json", "utf8"));
 
 module.exports.run = (client, message, args) => {
-    if(message.author.id !== "325951812991451137" || message.author.id !== "268853598862049280" || message.author.id !== "304016056341626881") {
+    if(message.author.id !== "325951812991451137" || message.author.id !== "268853598862049280" || message.author.id !== "304016056341626881" || message.author.id !== "321242389106786314") {
         message.channel.send({
             embed: utils.embed(`Error!`, `This command is for Developers only!`, [], {
                 color: '#ff0000'
