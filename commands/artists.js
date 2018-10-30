@@ -28,7 +28,7 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = {
     command: 'artists',
-    usage: `n/artists`,
+    usage: `artists`,
     category: 'Main Commands',
     description: 'List all the artists supported by Nerdcore Radio!'
 };

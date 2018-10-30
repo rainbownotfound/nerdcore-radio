@@ -4,6 +4,7 @@ const stripIndents = require('common-tags').stripIndents;
 const utils = require('../utils');
 const config = require('../config.json');
 sql.open('./artist-radios.sqlite');
+let prefixes = JSON.parse(fs.readFileSync("data/configs/prefixes.json", "utf8"));
 
 module.exports.run = (client, message, args) => {
     function infiniteLooper(dispatcherCB, connection) {
@@ -37,7 +38,7 @@ module.exports.run = (client, message, args) => {
             }).catch(() => {
                 sql.run(`CREATE TABLE IF NOT EXISTS groundbreaking (link TEXT, name TEXT, creator TEXT, featuring TEXT)`).then(() => {
                     message.channel.send({
-                        embed: utils.embed(`Error!`, `Groundbreaking Radio is currently empty! Please contact the developers about this issue using \`n/reportbug\``)
+                        embed: utils.embed(`Error!`, `Groundbreaking Radio is currently empty! Please contact the developers about this issue using \`${prefixes[message.guild.id].prefixes}reportbug\``)
                     });
                 });
             });
@@ -120,7 +121,7 @@ module.exports.run = (client, message, args) => {
                             embed: utils.embed(`Error!`, `I'm already playing music!`, [
                                 {
                                     name: 'Possible Solutions',
-                                    value: 'Try \`n/leave\` then request your preferred radio!'
+                                    value: `Try \`${prefixes[message.guild.id].prefixes}leave\` then request your preferred radio!`
                                 },
                                 {
                                     name: 'Nothing Helped?',
@@ -141,7 +142,7 @@ module.exports.run = (client, message, args) => {
             }).catch(() => {
                 sql.run(`CREATE TABLE IF NOT EXISTS groundbreaking (link TEXT, name TEXT, creator TEXT, featuring TEXT)`).then(() => {
                     message.channel.send({
-                        embed: utils.embed(`Error!`, `Groundbreaking Radio is currently empty! Please contact the developers about this issue using \`n/reportbug\``)
+                        embed: utils.embed(`Error!`, `Groundbreaking Radio is currently empty! Please contact the developers about this issue using \`${prefixes[message.guild.id].prefixes}reportbug\``)
                     });
                 });
             });
@@ -238,7 +239,7 @@ module.exports.run = (client, message, args) => {
 
 module.exports.help = {
     command: 'groundbreaking',
-    usage: 'n/groundbreaking',
+    usage: 'groundbreaking',
     category: 'Radios',
     description: 'Listen to Groundbreaking\'s songs with Groundbreaking Radio!'
 };
