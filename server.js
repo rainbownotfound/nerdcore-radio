@@ -106,18 +106,12 @@ client.on("message", message => {
     if(message.channel.type === "dm") {
         message.reply(`Please use me in a public server. Thank you.`);
     } else {
-        /** var cont = message.content.slice(prefix.length).split(" ");
+        var cont = message.content.slice(prefix.length).split(" ");
         var args = cont.slice(1);
         var cmd = client.commands.get(cont[0]);
         if(cmd) {
             cmd.run(client, message, args);
-        } else {
-            message.channel.send(`Command **${cont[0]}** is not recognised. Please try n/help for more info.`);
-        } **/
-
-        message.channel.send({
-            embed: utils.embed(`Temporary Shutdown`, `This bot is undergoing a temporary shutdown, due to all radios being under huge maintenance. Estimated time until full update release: 72 hours.\n\nGot any questions? Feel free to join the [Support Server](https://discord.gg/RXhCaEk)!`)
-        });
+        }
     }
 });
 
